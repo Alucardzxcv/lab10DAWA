@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nueva Ventana</title>
+</head>
+<body>
+  <h1>Datos del formulario</h1>
+
+  <script>
+    // Obtener los parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get('nombre');
+    const email = params.get('email');
+
+    // Mostrar los campos en la página
+    document.write(`Nombre: ${nombre}<br>`);
+    document.write(`Email: ${email}<br>`);
+  </script>
+</body>
+</html>

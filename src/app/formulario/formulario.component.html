@@ -1,0 +1,22 @@
+<form (ngSubmit)="confirmarEnvio()" #myForm="ngForm">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required class="form-control">
+
+    <div *ngIf="myForm.controls['nombre'].invalid && (myForm.controls['nombre'].dirty || myForm.controls['nombre'].touched)">
+      <div *ngIf="myForm.controls['nombre'].hasError('required')" class="text-danger">El nombre es obligatorio.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required class="form-control">
+
+    <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+      <div *ngIf="myForm.controls['email'].hasError('required')" class="text-danger">El email es obligatorio.</div>
+      <div *ngIf="myForm.controls['email'].hasError('email')" class="text-danger">El email no es válido.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-primary">Enviar</button>
+</form>
